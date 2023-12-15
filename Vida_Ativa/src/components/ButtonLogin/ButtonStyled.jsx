@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonSpace = styled.button`
-  height: 60px;
+  height: 45px;
   border-radius: 50px;
   background: #0a7de8;
   border: none;
