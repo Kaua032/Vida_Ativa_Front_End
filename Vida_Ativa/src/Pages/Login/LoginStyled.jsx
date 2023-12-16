@@ -10,6 +10,14 @@ export const LoginMain = styled.main`
   justify-content: center;
   gap: 20px;
 
+  background-image: url("/background_image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: 1000px){
+    background-image: none;
+  }
+
   @media (max-width: 450px) {
     gap: 50px;
   }
