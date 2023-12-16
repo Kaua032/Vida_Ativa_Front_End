@@ -1,8 +1,8 @@
 import { ButtonSpace, ButtonImage } from "./ButtonStyled.jsx";
 
-function Button({ type, text }) {
+function Button({ type, text, height, width, top }) {
   return (
-    <ButtonSpace type={type}>
+    <ButtonSpace type={type} height={height} width={width} top={top}>
       {text}
       <ButtonImage />
     </ButtonSpace>
