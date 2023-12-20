@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const LogoStyled = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   flex-direction: ${(props) => props.direction};
 `;

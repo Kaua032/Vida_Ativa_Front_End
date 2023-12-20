@@ -1,7 +1,11 @@
-
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
-    return <h1>Home</h1>
+  return (
+    <>
+      <Navbar type1="1" type2="2" />
+    </>
+  );
 }
 
 export default Home;
