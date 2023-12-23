@@ -14,7 +14,7 @@ export const LoginMain = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     background-image: none;
   }
 
@@ -31,6 +31,15 @@ export const DivLogin = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 35px;
+
+  form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
 
   padding: 35px 0px 40px 0px;
 
