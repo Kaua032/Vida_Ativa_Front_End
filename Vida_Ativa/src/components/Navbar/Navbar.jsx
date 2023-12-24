@@ -1,8 +1,17 @@
 import ButtonNavbar from "../ButtonNavbar/ButtonNavbar";
 import Logo from "../Logo/Logo";
 import { MainNav, NavNav, PerfilNav } from "./NavbarStyled";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-function Navbar({type1, type2}) {
+function Navbar({ type1, type2 }) {
+  const navigate = useNavigate();
+
+  async function signout() {
+    Cookies.remove("token");
+    navigate("/")
+  }
+
   return (
     <MainNav>
       <NavNav>
@@ -17,7 +26,7 @@ function Navbar({type1, type2}) {
           <h3>Vitor</h3>
           <p>Administrador</p>
         </div>
-        <button id="logout"></button>
+        <button onClick={signout} id="logout"></button>
       </PerfilNav>
     </MainNav>
   );

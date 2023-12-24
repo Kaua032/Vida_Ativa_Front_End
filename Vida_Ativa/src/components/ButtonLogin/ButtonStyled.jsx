@@ -16,11 +16,12 @@ export const ButtonSpace = styled.button`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  cursor: pointer;
 
   @media (max-width: 650px) {
     width: 90%;
   }
-  @media (max-width: 450px){
+  @media (max-width: 450px) {
     width: 100%;
   }
 `;

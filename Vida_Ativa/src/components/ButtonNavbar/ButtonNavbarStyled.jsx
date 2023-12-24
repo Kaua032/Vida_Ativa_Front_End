@@ -15,7 +15,7 @@ export const ButtonNavStyle = styled.button`
 
   color: ${(props) => (props.state === "on" ? "#ffffff;" : "#525668")};
   background: ${(props) => (props.state === "on" ? "#0A7DE8;" : "none")};
-  background-image: url( ${(props) => (props.type === "1" ? (props.state === "on" ? "/freqWhite.svg" : "/freqGray") : (props.type === "2" ? (props.state === "on"? "/permWhite.svg" : "/permGray.svg") : ""))});
+  background-image: url( ${(props) => (props.type === "1" ? (props.state === "on" ? "/freqWhite.svg" : "/freqGray.svg") : (props.type === "2" ? (props.state === "on"? "/permWhite.svg" : "/permGray.svg") : ""))});
   background-repeat: no-repeat;
   background-position: 20px 12px;
 
