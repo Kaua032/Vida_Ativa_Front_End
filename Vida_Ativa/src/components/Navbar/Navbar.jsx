@@ -3,14 +3,38 @@ import Logo from "../Logo/Logo";
 import { MainNav, NavNav, PerfilNav } from "./NavbarStyled";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { findUser } from "../../services/userService";
+import { UserContext } from "../../Context/UserContext.jsx";
+import { useContext, useEffect, useState } from "react";
 
 function Navbar({ type1, type2 }) {
   const navigate = useNavigate();
 
+  const { user, setUser } = useContext(UserContext);
+  const [userLoaded, setUserLoaded] = useState(false);
+
   async function signout() {
     Cookies.remove("token");
-    navigate("/")
+    navigate("/");
   }
+
+  async function findUserLogged() {
+    try {
+      const response = await findUser();
+      setUser(response.data.user);
+      setUserLoaded(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    if (Cookies.get("token")) {
+      findUserLogged();
+    } else {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <MainNav>
@@ -22,10 +46,13 @@ function Navbar({ type1, type2 }) {
         </div>
       </NavNav>
       <PerfilNav>
-        <div>
-          <h3>Vitor</h3>
-          <p>Administrador</p>
-        </div>
+        {userLoaded ? (
+          <div>
+            <h3>{user.name}</h3> <p>Professor</p>
+          </div>
+        ) : (
+          navigate("/")
+        )}
         <button onClick={signout} id="logout"></button>
       </PerfilNav>
     </MainNav>
