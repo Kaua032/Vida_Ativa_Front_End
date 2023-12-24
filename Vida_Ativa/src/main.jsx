@@ -4,7 +4,6 @@ import { GlobalStyled } from "./GlobalStyled.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Pages/Login/Login.jsx";
 import Home from "./Pages/Home/Home.jsx";
-import Cookies from "js-cookie";
 
 const router = createBrowserRouter([
   {
