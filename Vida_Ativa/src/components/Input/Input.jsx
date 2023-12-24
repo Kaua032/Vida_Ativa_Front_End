@@ -1,7 +1,7 @@
 import { InputStyled } from "./InputStyled";
 
-function Input({ ...props }) {
-  return <InputStyled {...props} />;
+function Input({ register, name, ...props }) {
+  return <InputStyled {...register(name)} {...props} />;
 }
 
 export default Input;

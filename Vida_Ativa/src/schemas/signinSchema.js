@@ -1,6 +1,6 @@
 import { z } from "zod";
 
 export const signinSchema = z.object({
-    email: z.string().email({ message: "E-mail inválido"}).toLowerCase(),
-    password: z.string().min(6, { message: "Senha deve ter no mínimo 6 caracteres"})
+    cpf: z.string().nonempty("CPF é obrigatório").regex(/^[0-9.-]*$/, "CPF deve conter apenas números."),
+    password: z.string().min(6, {message: "A senha precisa conter no mínimo 6 caracteres"}),
 })
