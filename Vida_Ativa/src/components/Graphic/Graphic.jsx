@@ -69,32 +69,46 @@ function Graphic() {
           </div>
           <div id="dates">
           {weekInEnglish.map((dayInEnglish) => (
-            (() => {
-              const dayInPortuguese = englishToPortuguese[dayInEnglish];
-              if (allFrequenceWeek && allFrequenceWeek[dayInEnglish] && (allFrequenceWeek[dayInEnglish].frequencesTrue === 0 || allFrequenceWeek[dayInEnglish].frequencesFalse === 0)){
-                return (
-                  <InfoGraphic>
+          (() => {
+            const dayInPortuguese = englishToPortuguese[dayInEnglish];
+            if (
+              allFrequenceWeek &&
+              allFrequenceWeek[dayInEnglish] &&
+              (allFrequenceWeek[dayInEnglish].frequencesTrue === 0 &&
+                allFrequenceWeek[dayInEnglish].frequencesFalse === 0)
+                ) {
+              console.log(allFrequenceWeek[dayInEnglish])
+              return (
+                <InfoGraphic>
                   <Sticks greenheight="0px" redheight="0px">
-                      <div id="green"></div>
-                      <div id="red"></div>
+                    <div id="green"></div>
+                    <div id="red"></div>
                   </Sticks>
                   <p>{dayInPortuguese}</p>
                 </InfoGraphic>
-                )
-              }
-              else{
-                return (
-                  <InfoGraphic>
-                    <Sticks greenheight={`${(allFrequenceWeek[dayInEnglish].frequencesTrue/totalStudents)*200}px`} redheight={`${(allFrequenceWeek[dayInEnglish].frequencesFalse/totalStudents)*200}px`}>
-                      <div id="green"></div>
-                      <div id="red"></div>
-                    </Sticks>
-                    <p>{dayInPortuguese}</p>
-                  </InfoGraphic>
-                );
-              }
-            })()
-          ))}
+              );
+            } else if (
+              allFrequenceWeek &&
+              allFrequenceWeek[dayInEnglish] &&
+              totalStudents
+            ) {
+              return (
+                <InfoGraphic>
+                  <Sticks
+                    greenheight={`${(allFrequenceWeek[dayInEnglish].frequencesTrue /
+                      totalStudents) * 200}px`}
+                    redheight={`${(allFrequenceWeek[dayInEnglish].frequencesFalse /
+                      totalStudents) * 200}px`}
+                  >
+                    <div id="green"></div>
+                    <div id="red"></div>
+                  </Sticks>
+                  <p>{dayInPortuguese}</p>
+                </InfoGraphic>
+              );
+            }
+          })()
+        ))}
         </div>
         </BackgroundGraphic>
       </SectionGraphic>
