@@ -21,3 +21,12 @@ export function findUser() {
   });
   return response;
 }
+
+export function allUsers() {
+  const response = axios.get(`${baseURL}/user/all`, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  });
+  return response;
+}
