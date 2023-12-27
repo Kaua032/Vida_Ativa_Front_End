@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const GraphicStyle = styled.div`
   max-width: 1000px;
   width: 100%;
-  height: 300px;
+  height: 350px;
 
   border-radius: 15px;
   border: 1px solid #dcdcdc;
@@ -58,6 +58,7 @@ export const BackgroundGraphic = styled.div`
     gap: 4px;
   }
   #lines div {
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,7 +73,6 @@ export const BackgroundGraphic = styled.div`
   }
   #lines div hr {
     width: 100%;
-    max-width: 930px;
     height: 1px;
     border: 1px solid #b0b0b0;
     background: #b0b0b0;
@@ -81,6 +81,7 @@ export const BackgroundGraphic = styled.div`
   #dates {
     display: flex;
     justify-content: space-between;
+    align-items: end;
     padding-left: 35px;
     padding-right: 15px;
 
@@ -90,22 +91,42 @@ export const BackgroundGraphic = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    margin-top: -219px;
   }
 `;
 
-export const InfoGraphic = styled.div``;
+export const InfoGraphic = styled.div`
+  height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
+  gap: 10px;
+
+`;
 
 export const Sticks = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+
+
   #green {
-    height: ${(props) => `${props.greenHeight}`};
+    height: ${(props) => `${props.greenheight}`};
     width: 23px;
     border-radius: 5px 5px 0px 0px;
     background: #008037;
   }
   #red {
-    height: ${(props) => `${props.redHeight}`};
+    height: ${(props) => `${props.redheight}`};
     width: 23px;
     border-radius: 5px 5px 0px 0px;
     background: #b22222;
+
+    margin-top: ${(props) => `-${props.redheight}`};
+    margin-left: -10px;
   }
 `;

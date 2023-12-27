@@ -6,11 +6,21 @@ import {
   SectionGraphic,
   Sticks,
 } from "./GraphicStyled";
-import { allFrequenceOnTheMonth } from "../../services/frequenceService";
+import { allFrequenceOnTheMonth, allFrequenceOnTheWeek } from "../../services/frequenceService";
+import { AllStudents } from "../../services/studentService";
 
 function Graphic() {
   const [lackFrequnceOnTheMonth, setLackFrequenceOnTheMonth] = useState();
   const [presentFrequnceOnTheMonth, setPresentFrequenceOnTheMonth] = useState();
+  const [totalStudents, setTotalStudents] = useState();
+  const [allFrequenceWeek, setAllFrequenceWeek] = useState();
+  const weekInEnglish = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const weekInPortuguese = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+
+  const englishToPortuguese = {};
+  weekInEnglish.forEach((day, index) => {
+    englishToPortuguese[day] = weekInPortuguese[index];
+  });
 
   async function findFrequenceOnTheMonth() {
     const frequenceResponse = await allFrequenceOnTheMonth();
@@ -19,8 +29,22 @@ function Graphic() {
     setPresentFrequenceOnTheMonth(frequenceResponse.data.frequencesTrue);
   }
 
+  async function countTotalStudents() {
+    const totalStudents = await AllStudents();
+
+    setTotalStudents(totalStudents.data.users.length);
+  }
+
+  async function frequenceWeek() {
+    const responseFrequenceWeek = await allFrequenceOnTheWeek();
+
+    setAllFrequenceWeek(responseFrequenceWeek.data)
+  }
+
   useEffect(() => {
     findFrequenceOnTheMonth();
+    countTotalStudents();
+    frequenceWeek();
   }, []);
 
   return (
@@ -32,31 +56,47 @@ function Graphic() {
       <SectionGraphic>
         <BackgroundGraphic>
           <div id="lines">
-            <div> <p>35</p> <hr /> </div>
-            <div> <p>30</p> <hr /> </div>
-            <div> <p>25</p> <hr /> </div>
-            <div> <p>20</p> <hr /> </div>
-            <div> <p>15</p> <hr /> </div>
-            <div> <p>10</p> <hr /> </div>
-            <div> <p>5</p> <hr /> </div>
-            <div> <p>0</p> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
+            <div> <hr /> </div>
           </div>
           <div id="dates">
-            <p>Domingo</p>
-            <p>Segunda</p>
-            <p>Terça</p>
-            <p>Quarta</p>
-            <p>Quinta</p>
-            <p>Sexta</p>
-            <p>Sábado</p>
-          </div>
+          {weekInEnglish.map((dayInEnglish) => (
+            (() => {
+              const dayInPortuguese = englishToPortuguese[dayInEnglish];
+              if (allFrequenceWeek && allFrequenceWeek[dayInEnglish] && (allFrequenceWeek[dayInEnglish].frequencesTrue === 0 || allFrequenceWeek[dayInEnglish].frequencesFalse === 0)){
+                return (
+                  <InfoGraphic>
+                  <Sticks greenheight="0px" redheight="0px">
+                      <div id="green"></div>
+                      <div id="red"></div>
+                  </Sticks>
+                  <p>{dayInPortuguese}</p>
+                </InfoGraphic>
+                )
+              }
+              else{
+                return (
+                  <InfoGraphic>
+                    <Sticks greenheight={`${(allFrequenceWeek[dayInEnglish].frequencesTrue/totalStudents)*200}px`} redheight={`${(allFrequenceWeek[dayInEnglish].frequencesFalse/totalStudents)*200}px`}>
+                      <div id="green"></div>
+                      <div id="red"></div>
+                    </Sticks>
+                    <p>{dayInPortuguese}</p>
+                  </InfoGraphic>
+                );
+              }
+            })()
+          ))}
+        </div>
         </BackgroundGraphic>
-        <InfoGraphic>
-            <Sticks greenHeight="74px" redHeight="50px">
-                <div id="green"></div>
-                <div id="red"></div>
-            </Sticks>
-        </InfoGraphic>
       </SectionGraphic>
     </GraphicStyle>
   );
