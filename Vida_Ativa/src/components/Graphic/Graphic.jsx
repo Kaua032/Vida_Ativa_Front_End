@@ -77,7 +77,6 @@ function Graphic() {
               (allFrequenceWeek[dayInEnglish].frequencesTrue === 0 &&
                 allFrequenceWeek[dayInEnglish].frequencesFalse === 0)
                 ) {
-              console.log(allFrequenceWeek[dayInEnglish])
               return (
                 <InfoGraphic>
                   <Sticks greenheight="0px" redheight="0px">

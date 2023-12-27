@@ -18,7 +18,6 @@ function Listheader() {
 
   useEffect(() => {
     FindAllUsers();
-    console.log()
   }, []);
   return (
     <ListArea>
@@ -52,7 +51,7 @@ function Listheader() {
             <p>{user[index].cpf}</p>
           </th>
           <th>
-            <input id={`${index}student`} className="student" type="checkbox" />
+            <input id={`${index}student`} className="student" type="checkbox"/>
           </th>
           <th>
             <input id={`${index}prof`} className="prof" type="checkbox" />
