@@ -10,7 +10,7 @@ export const MainTeachers = styled.main`
     align-items: center;
     gap: 20px;
 
-    padding: 50px;
+    padding: 50px 155px;
   }
   #painel .new-teacher {
     height: 40px;
@@ -33,5 +33,7 @@ export const MainTeachers = styled.main`
     line-height: normal;
 
     cursor: pointer;
+
+    align-self: flex-start;
   }
 `;
