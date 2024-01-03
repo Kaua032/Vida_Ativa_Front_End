@@ -41,23 +41,30 @@ function Listheader() {
         </div>
       </header>
       <table>
-        {infoAllUsers && infoAllUsers.map((user, index) => (
-          // eslint-disable-next-line react/jsx-key
-          <LineTeacher>
-            <th>
-            <p id="teacher">{user[index].name}</p>
-          </th>
-          <th>
-            <p>{user[index].cpf}</p>
-          </th>
-          <th>
-            <input id={`${index}student`} className="student" type="checkbox"/>
-          </th>
-          <th>
-            <input id={`${index}prof`} className="prof" type="checkbox" />
-          </th>
-          </LineTeacher>
-        ))}
+        <tbody>
+          {infoAllUsers &&
+            infoAllUsers.map((user, index) => (
+              // eslint-disable-next-line react/jsx-key
+              <LineTeacher>
+                <th>
+                  <p id="teacher">{user[index].name}</p>
+                </th>
+                <th>
+                  <p>{user[index].cpf}</p>
+                </th>
+                <th>
+                  <input
+                    id={`${index}student`}
+                    className="student"
+                    type="checkbox"
+                  />
+                </th>
+                <th>
+                  <input id={`${index}prof`} className="prof" type="checkbox" />
+                </th>
+              </LineTeacher>
+            ))}
+        </tbody>
       </table>
     </ListArea>
   );

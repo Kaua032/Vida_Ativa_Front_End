@@ -7,7 +7,7 @@ export const MainNav = styled.header`
 
   width: 290px;
   height: 100vh;
-  padding: 20px 20px 40px 20px;
+  padding: 20px 20px 20px 20px;
 `;
 export const NavNav = styled.nav`
   display: flex;
