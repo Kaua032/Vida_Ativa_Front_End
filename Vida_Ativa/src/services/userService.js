@@ -4,7 +4,11 @@ import Cookies from "js-cookie";
 const baseURL = "http://localhost:3000";
 
 export function signup(data) {
-  const response = axios.post(`${baseURL}/user/register`, data);
+  const response = axios.post(`${baseURL}/user/register`, data, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  });
   return response;
 }
 

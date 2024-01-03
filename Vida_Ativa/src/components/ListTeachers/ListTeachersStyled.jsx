@@ -65,7 +65,7 @@ export const LineTeacher = styled.tr`
     text-align: left;
   }
   th .student {
-    margin-left: 28%;
+    margin-left: 58%;
   }
   th .prof {
     margin-left: 81%;
