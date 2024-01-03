@@ -10,7 +10,7 @@ export const MainTeachers = styled.main`
     align-items: center;
     gap: 20px;
 
-    padding: 50px 155px;
+    padding: 50px 175px;
   }
   #painel .new-teacher {
     height: 40px;
