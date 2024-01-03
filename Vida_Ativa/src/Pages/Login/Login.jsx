@@ -2,7 +2,7 @@ import { useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin/ButtonLogin.jsx";
 import Input from "../../components/Input/Input.jsx";
 import Logo from "../../components/Logo/Logo.jsx";
-import { DivLogin, LoginMain } from "./LoginStyled.jsx";
+import { DivLogin, ErrorText, LoginMain } from "./LoginStyled.jsx";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signinSchema } from "../../schemas/signinSchema.js";
@@ -25,6 +25,7 @@ function Login() {
   async function inHandleSubmit(data) {
     try {
       const response = await signin(data);
+      console.log(response)
       Cookies.set("token", response.data.token, { expires: 1 });
       navigate("/home");
     } catch (error) {
@@ -67,8 +68,8 @@ function Login() {
             radius="50px"
             register={registerSignin}
           />
-          {errorsSignin.cpf && errorsSignin.cpf.message}
-          {serverError && <p>{serverError}</p>}
+          {errorsSignin.cpf && <ErrorText>{errorsSignin.cpf.message}</ErrorText>}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
           <Input
             name="password"
             type="password"
@@ -78,8 +79,8 @@ function Login() {
             radius="50px"
             register={registerSignin}
           />
-          {errorsSignin.password && errorsSignin.password.message}
-          {serverError && <p>{serverError}</p>}
+          {errorsSignin.password && <ErrorText>{errorsSignin.password.message}</ErrorText>}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
           <ButtonLogin
             type="submit"
             text="Entrar"

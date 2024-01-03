@@ -25,7 +25,6 @@ export const LoginMain = styled.main`
 
 export const DivLogin = styled.div`
   width: 600px;
-  height: 423px;
 
   display: flex;
   flex-direction: column;
@@ -68,3 +67,7 @@ export const DivLogin = styled.div`
     }
   }
 `;
+
+export const ErrorText = styled.div`
+  color: #ff0318;
+`
