@@ -43,7 +43,8 @@ function Teachers() {
   async function inHandleSubmit(data) {
     try {
       await signup(data);
-      handleClose;
+      handleClose();
+      window.location.reload();
     } catch (error) {
       setServerError(error.response.data.message);
       console.log(error);
@@ -61,7 +62,10 @@ function Teachers() {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          <form onSubmit={handleSubmitSignup(inHandleSubmit)} className="modalAddTeacher">
+          <form
+            onSubmit={handleSubmitSignup(inHandleSubmit)}
+            className="modalAddTeacher"
+          >
             <Logo
               width="80px"
               height="38.405px"

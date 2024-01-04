@@ -9,7 +9,7 @@ function Listheader() {
   async function FindAllUsers() {
     const usersReponse = await allUsers();
 
-    setInfoAllUsers(usersReponse.data.users);
+    setInfoAllUsers(usersReponse.data.users[0]);
   }
 
   // function verifyChecked(id){
@@ -23,7 +23,7 @@ function Listheader() {
     <ListArea>
       <header>
         <div id="header1">
-          <p>Lista de Chamada</p>
+          <p>Lista de Professores</p>
           <form>
             <SpaceSearch>
               <input type="text" placeholder="Buscar" />
@@ -41,23 +41,28 @@ function Listheader() {
         </div>
       </header>
       <table>
-        {infoAllUsers && infoAllUsers.map((user, index) => (
-          // eslint-disable-next-line react/jsx-key
-          <LineTeacher>
-            <th>
-            <p id="teacher">{user[index].name}</p>
-          </th>
-          <th>
-            <p>{user[index].cpf}</p>
-          </th>
-          <th>
-            <input id={`${index}student`} className="student" type="checkbox"/>
-          </th>
-          <th>
-            <input id={`${index}prof`} className="prof" type="checkbox" />
-          </th>
-          </LineTeacher>
-        ))}
+        {infoAllUsers &&
+          infoAllUsers.map((user, index) => (
+            // eslint-disable-next-line react/jsx-key
+            <LineTeacher>
+              <th>
+                <p className="teacher">{user.name}</p>
+              </th>
+              <th>
+                <p className="cpf">{user.cpf}</p>
+              </th>
+              <th>
+                <input
+                  id={`${index}student`}
+                  className="student"
+                  type="checkbox"
+                />
+              </th>
+              <th>
+                <input id={`${index}prof`} className="prof" type="checkbox" />
+              </th>
+            </LineTeacher>
+          ))}
       </table>
     </ListArea>
   );

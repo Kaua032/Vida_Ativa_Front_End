@@ -92,7 +92,7 @@ export const BackgroundGraphic = styled.div`
     font-weight: 500;
     line-height: normal;
 
-    margin-top: -219px;
+    margin-top: -200px;
   }
 `;
 

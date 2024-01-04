@@ -61,8 +61,11 @@ export const LineTeacher = styled.tr`
     line-height: normal;
     width: 25%;
   }
-  th #teacher {
+  th .teacher {
     text-align: left;
+  }
+  th .cpf {
+    text-align: center;
   }
   th .student {
     margin-left: 58%;
