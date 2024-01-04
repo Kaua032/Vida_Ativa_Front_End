@@ -66,6 +66,7 @@ export const LineTeacher = styled.tr`
   }
   th .cpf {
     text-align: center;
+
   }
   th .student {
     margin-left: 58%;
