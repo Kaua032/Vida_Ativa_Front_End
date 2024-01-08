@@ -57,22 +57,22 @@ function Listheader() {
           infoAllUsers.map((user, index) => (
             // eslint-disable-next-line react/jsx-key
             <LineTeacher>
-              <th>
+              <form action="">
                 <p className="teacher">{user.name}</p>
-              </th>
-              <th>
                 <p className="cpf">{user.cpf}</p>
-              </th>
-              <th>
                 <input
                   id={`${index}student`}
                   className="student"
                   type="checkbox"
+                  name="add_student"
                 />
-              </th>
-              <th>
-                <input id={`${index}prof`} className="prof" type="checkbox" />
-              </th>
+                <input
+                  id={`${index}prof`}
+                  className="prof"
+                  type="checkbox"
+                  name="add_teacher"
+                />
+              </form>
             </LineTeacher>
           ))}
       </table>

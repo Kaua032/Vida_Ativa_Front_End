@@ -38,7 +38,7 @@ export const ListArea = styled.div`
   }
 `;
 
-export const LineTeacher = styled.tr`
+export const LineTeacher = styled.div`
   display: flex;
 
   color: #525668;
@@ -52,38 +52,34 @@ export const LineTeacher = styled.tr`
   border-top: 1px solid #dcdcdc;
   padding: 10px 15px;
 
-  th {
-    color: #525668;
-    font-family: Montserrat;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  form{
+    width: 100%;
+    display: flex;
+  }
+
+  form *{
     width: 25%;
   }
-  th .teacher {
-    text-align: left;
-  }
-  th .cpf {
+  .cpf {
     text-align: center;
 
   }
-  th .student {
-    margin-left: 58%;
+  .student {
+    margin-left: 15%;
   }
-  th .prof {
-    margin-left: 81%;
+  .prof {
+    margin-left: 27%;
   }
   
-  th .prof[type="checkbox"],
-  th .student[type="checkbox"] {
+  .prof[type="checkbox"],
+  .student[type="checkbox"] {
     width: 30px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #b22222;
   }
-  th .prof[type="checkbox"]:checked,
-  th .student[type="checkbox"]:checked {
+  .prof[type="checkbox"]:checked,
+  .student[type="checkbox"]:checked {
     appearance: none; /* remove o estilo padrão do navegador */
     background-color: #008037;
     border-radius: 5px;
