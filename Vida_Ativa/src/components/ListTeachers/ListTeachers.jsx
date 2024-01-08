@@ -22,6 +22,7 @@ function Listheader() {
     }
   }
 
+
   useEffect(() => {
     FindAllUsers();
     if (infoAllUsers && initialLoad) {
@@ -61,16 +62,24 @@ function Listheader() {
                 <p className="teacher">{user.name}</p>
                 <p className="cpf">{user.cpf}</p>
                 <input
+                  type="hidden"
+                  name="cpf"
+                  value={user.cpf}
+                  form="mainForm"
+                />
+                <input
                   id={`${index}student`}
                   className="student"
                   type="checkbox"
                   name="add_student"
+                  form="mainForm"
                 />
                 <input
                   id={`${index}prof`}
                   className="prof"
                   type="checkbox"
                   name="add_teacher"
+                  form="mainForm"
                 />
               </form>
             </LineTeacher>
