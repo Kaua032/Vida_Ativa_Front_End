@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { SpaceSearch } from "../Search/SearchStyled";
 import { LineTeacher, ListArea } from "./ListTeachersStyled";
-import { allUsers } from "../../services/userService";
+import { allUsers, updateUser } from "../../services/userService";
+import { updateUserSchema } from "../../schemas/updateUserSchema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 function Listheader() {
   const [infoAllUsers, setInfoAllUsers] = useState();
@@ -9,7 +12,6 @@ function Listheader() {
 
   async function FindAllUsers() {
     const usersReponse = await allUsers();
-    console.log(usersReponse.data.users[0]);
     setInfoAllUsers(usersReponse.data.users[0]);
   }
 
@@ -22,6 +24,19 @@ function Listheader() {
     }
   }
 
+  const {
+    register: registerUpdateUser,
+    handleSubmit: handleSubmitUpdateUser,
+  } = useForm({ resolver: zodResolver(updateUserSchema) });
+
+  async function inHandleSubmit(data) {
+    try {
+      console.log(data)
+      await updateUser(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     FindAllUsers();
@@ -53,38 +68,38 @@ function Listheader() {
           <p>Prof</p>
         </div>
       </header>
-      <table>
-        {infoAllUsers &&
-          infoAllUsers.map((user, index) => (
-            // eslint-disable-next-line react/jsx-key
-            <LineTeacher>
-              <form action="">
-                <p className="teacher">{user.name}</p>
-                <p className="cpf">{user.cpf}</p>
-                <input
-                  type="hidden"
-                  name="cpf"
-                  value={user.cpf}
-                  form="mainForm"
-                />
-                <input
-                  id={`${index}student`}
-                  className="student"
-                  type="checkbox"
-                  name="add_student"
-                  form="mainForm"
-                />
-                <input
-                  id={`${index}prof`}
-                  className="prof"
-                  type="checkbox"
-                  name="add_teacher"
-                  form="mainForm"
-                />
-              </form>
-            </LineTeacher>
-          ))}
-      </table>
+      {infoAllUsers &&
+        infoAllUsers.map((user, index) => (
+          // eslint-disable-next-line react/jsx-key
+          <LineTeacher>
+            <form onSubmit={handleSubmitUpdateUser(inHandleSubmit)}>
+              <p className="teacher">{user.name}</p>
+              <p className="cpf">{user.cpf}</p>
+              <input
+                type="hidden"
+                name="cpf"
+                value={user.cpf}
+                {...registerUpdateUser("cpf")}
+              />
+              <input
+                id={`${index}student`}
+                className="student"
+                type="checkbox"
+                name="add_student"
+                {...registerUpdateUser("add_student")}
+                onChange={handleSubmitUpdateUser(inHandleSubmit)}
+              />
+              <input
+                id={`${index}prof`}
+                className="prof"
+                type="checkbox"
+                name="add_teacher"
+                {...registerUpdateUser("add_teacher")}
+                onChange={handleSubmitUpdateUser(inHandleSubmit)}
+              />
+            </form>
+          </LineTeacher>
+        ))}
     </ListArea>
   );
 }
