@@ -60,71 +60,66 @@ function Teachers() {
         </Button>
         <Listheader />
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Body>
-          <form
-            onSubmit={handleSubmitSignup(inHandleSubmit)}
-            className="modalAddTeacher"
-          >
-            <Logo
-              width="80px"
-              height="38.405px"
-              font_size="25px"
-              direction="row"
-            />
+      <Modal show={show} onHide={handleClose} className="modalAddTeacher">
+        <form onSubmit={handleSubmitSignup(inHandleSubmit)}>
+          <Logo
+            width="80px"
+            height="38.405px"
+            font_size="25px"
+            direction="row"
+          />
 
-            <Input
-              name="name"
-              type="text"
-              placeholder="Nome Completo"
-              autoFocus
-              height="45px"
-              width="460px"
-              radius="20px"
-              register={registerSignup}
-            />
-            {errorsSignup.name && (
-              <ErrorText>{errorsSignup.name.message}</ErrorText>
-            )}
-            {serverError && <ErrorText>{serverError}</ErrorText>}
-            <Input
-              name="cpf"
-              type="text"
-              placeholder="000.000.000-00"
-              onKeyPress={mascara}
-              maxLength="14"
-              autoFocus
-              height="45px"
-              width="460px"
-              radius="20px"
-              register={registerSignup}
-            />
-            {errorsSignup.cpf && (
-              <ErrorText>{errorsSignup.cpf.message}</ErrorText>
-            )}
-            {serverError && <ErrorText>{serverError}</ErrorText>}
-            <Input
-              name="password"
-              type="password"
-              placeholder="Senha"
-              autoFocus
-              height="45px"
-              width="460px"
-              radius="20px"
-              register={registerSignup}
-            />
-            {errorsSignup.password && (
-              <ErrorText>{errorsSignup.password.message}</ErrorText>
-            )}
-            {serverError && <ErrorText>{serverError}</ErrorText>}
-            <Button variant="secondary" onClick={handleClose}>
-              Cancelar
-            </Button>
-            <Button type="submit" variant="primary">
-              Adicionar
-            </Button>
-          </form>
-        </Modal.Body>
+          <Input
+            name="name"
+            type="text"
+            placeholder="Nome Completo"
+            autoFocus
+            height="45px"
+            width="460px"
+            radius="20px"
+            register={registerSignup}
+          />
+          {errorsSignup.name && (
+            <ErrorText>{errorsSignup.name.message}</ErrorText>
+          )}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
+          <Input
+            name="cpf"
+            type="text"
+            placeholder="000.000.000-00"
+            onKeyPress={mascara}
+            maxLength="14"
+            autoFocus
+            height="45px"
+            width="460px"
+            radius="20px"
+            register={registerSignup}
+          />
+          {errorsSignup.cpf && (
+            <ErrorText>{errorsSignup.cpf.message}</ErrorText>
+          )}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
+          <Input
+            name="password"
+            type="password"
+            placeholder="Senha"
+            autoFocus
+            height="45px"
+            width="460px"
+            radius="20px"
+            register={registerSignup}
+          />
+          {errorsSignup.password && (
+            <ErrorText>{errorsSignup.password.message}</ErrorText>
+          )}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
+          <Button variant="secondary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button type="submit" variant="primary">
+            Adicionar
+          </Button>
+        </form>
       </Modal>
     </MainTeachers>
   );

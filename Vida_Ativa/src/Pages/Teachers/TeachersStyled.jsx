@@ -37,4 +37,7 @@ export const MainTeachers = styled.main`
     align-self: self-start;
 
   }
+  .modalAddTeacher{
+    background-color: #ff0000;
+  }
 `;

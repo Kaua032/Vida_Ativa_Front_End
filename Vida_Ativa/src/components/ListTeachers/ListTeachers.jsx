@@ -5,20 +5,32 @@ import { allUsers } from "../../services/userService";
 
 function Listheader() {
   const [infoAllUsers, setInfoAllUsers] = useState();
+  const [initialLoad, setInitialLoad] = useState(true);
 
   async function FindAllUsers() {
     const usersReponse = await allUsers();
-
+    console.log(usersReponse.data.users[0]);
     setInfoAllUsers(usersReponse.data.users[0]);
   }
 
-  // function verifyChecked(id){
-
-  // }
+  function PermissionCheck(index) {
+    const inputStudent = document.getElementById(`${index}student`);
+    const inputTeacher = document.getElementById(`${index}prof`);
+    if (inputStudent && inputTeacher) {
+      inputStudent.checked = infoAllUsers[index].add_student;
+      inputTeacher.checked = infoAllUsers[index].add_teacher;
+    }
+  }
 
   useEffect(() => {
     FindAllUsers();
-  }, []);
+    if (infoAllUsers && initialLoad) {
+      infoAllUsers.forEach((user, index) => {
+        PermissionCheck(index);
+      });
+      setInitialLoad(false);
+    }
+  }, [initialLoad, infoAllUsers]);
   return (
     <ListArea>
       <header>
