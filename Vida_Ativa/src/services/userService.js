@@ -34,3 +34,12 @@ export function allUsers() {
   });
   return response;
 }
+
+export function updateUser(data) {
+  const response = axios.put(`${baseURL}/user/update`, data, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  });
+  return response;
+}
