@@ -30,7 +30,7 @@ export const ListArea = styled.div`
 
     margin-top: 25px;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 0px 40px 0px 20px;
   }
 
   table {
@@ -52,17 +52,16 @@ export const LineTeacher = styled.div`
   border-top: 1px solid #dcdcdc;
   padding: 10px 15px;
 
-  form{
+  form {
     width: 100%;
     display: flex;
   }
 
-  form *{
+  form * {
     width: 25%;
   }
   .cpf {
     text-align: center;
-
   }
   .student {
     margin-left: 15%;
@@ -70,7 +69,7 @@ export const LineTeacher = styled.div`
   .prof {
     margin-left: 27%;
   }
-  
+
   .prof[type="checkbox"],
   .student[type="checkbox"] {
     width: 30px;
@@ -92,4 +91,14 @@ export const LineTeacher = styled.div`
     background-position: center;
   }
 
+  .buttonSubmit {
+    width: 24px;
+    height: 24px;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+    background-image: url("/correto.png");
+    background-repeat: no-repeat;
+    border-radius: 25px;
+  }
 `;

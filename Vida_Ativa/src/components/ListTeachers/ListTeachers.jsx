@@ -23,15 +23,19 @@ function Listheader() {
       inputTeacher.checked = infoAllUsers[index].add_teacher;
     }
   }
+  function ChangeInput(index) {
+    const buttonSubmit = document.getElementById(`${index}submitbutton`);
+    if (buttonSubmit) {
+      buttonSubmit.style.display = "flex";
+    }
+  }
 
-  const {
-    register: registerUpdateUser,
-    handleSubmit: handleSubmitUpdateUser,
-  } = useForm({ resolver: zodResolver(updateUserSchema) });
+  const { register: registerUpdateUser, handleSubmit: handleSubmitUpdateUser } =
+    useForm({ resolver: zodResolver(updateUserSchema) });
 
   async function inHandleSubmit(data) {
     try {
-      console.log(data)
+      console.log(data);
       await updateUser(data);
     } catch (error) {
       console.log(error);
@@ -87,16 +91,20 @@ function Listheader() {
                 type="checkbox"
                 name="add_student"
                 {...registerUpdateUser("add_student")}
-                onChange={handleSubmitUpdateUser(inHandleSubmit)}
               />
               <input
                 id={`${index}prof`}
                 className="prof"
                 type="checkbox"
                 name="add_teacher"
+                defaultChecked={user.add_teacher}
                 {...registerUpdateUser("add_teacher")}
-                onChange={handleSubmitUpdateUser(inHandleSubmit)}
               />
+              <button
+                className="buttonSubmit"
+                id={`${index}submitbutton`}
+                type="submit"
+              ></button>
             </form>
           </LineTeacher>
         ))}
