@@ -20,15 +20,15 @@ function Listheader() {
       inputTeacher.checked = infoAllUsers[index].add_teacher;
     }
   }
-  
-  function changeButtons(){
-    document.getElementById("shadowButton").style.display = "none"
-    document.getElementById("submitButton").style.display = "flex"
+
+  function changeButtons() {
+    document.getElementById("shadowButton").style.display = "none";
+    document.getElementById("submitButton").style.display = "flex";
   }
 
   function assemblingData() {
-    document.getElementById("shadowButton").style.display = "flex"
-    document.getElementById("submitButton").style.display = "none"
+    document.getElementById("shadowButton").style.display = "flex";
+    document.getElementById("submitButton").style.display = "none";
     let dataUsers = [];
     if (infoAllUsers) {
       for (let i = 0; i < infoAllUsers.length; i++) {
@@ -45,7 +45,7 @@ function Listheader() {
         dataUsers.push(currentUser);
       }
     }
-    return inHandleSubmit(dataUsers)
+    return inHandleSubmit(dataUsers);
   }
 
   async function inHandleSubmit(data) {
@@ -91,28 +91,36 @@ function Listheader() {
         infoAllUsers.map((user, index) => (
           // eslint-disable-next-line react/jsx-key
           <LineTeacher>
-            <p className="teacher">{user.name}</p>
-            <p className="cpf">{user.cpf}</p>
+            <div className="teacher">
+              <p id="techearName">{user.name}</p>
+            </div>
+            <div className="cpf">
+              <p>{user.cpf}</p>
+            </div>
             <input
               type="hidden"
               name="cpf"
               id={`${index}cpf`}
               value={user.cpf}
             />
-            <input
-              id={`${index}student`}
-              className="student"
-              type="checkbox"
-              name="add_student"
-              onChange={() => changeButtons()}
-            />
-            <input
-              id={`${index}prof`}
-              className="prof"
-              type="checkbox"
-              name="add_teacher"
-              onChange={() => changeButtons()}
-            />
+            <div>
+              <input
+                id={`${index}student`}
+                className="student"
+                type="checkbox"
+                name="add_student"
+                onChange={() => changeButtons()}
+              />
+            </div>
+            <div>
+              <input
+                id={`${index}prof`}
+                className="prof"
+                type="checkbox"
+                name="add_teacher"
+                onChange={() => changeButtons()}
+              />
+            </div>
           </LineTeacher>
         ))}
       <button
@@ -123,7 +131,9 @@ function Listheader() {
       >
         Salvar
       </button>
-      <button className="buttonSubmit" id="shadowButton">Salvar</button>
+      <button className="buttonSubmit" id="shadowButton">
+        Salvar
+      </button>
     </ListArea>
   );
 }

@@ -54,10 +54,10 @@ export const ListArea = styled.div`
     font-weight: 700;
     line-height: normal;
   }
-  #submitButton{
+  #submitButton {
     display: none;
   }
-  #shadowButton{
+  #shadowButton {
     background-color: #8c9cac99;
     cursor: auto;
   }
@@ -76,16 +76,25 @@ export const LineTeacher = styled.div`
 
   border-top: 1px solid #dcdcdc;
   padding: 10px 15px;
-  .cpf {
-    text-align: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+  }
+  div p {
+    margin-bottom: 0;
+  }
+  div #techearName {
+    align-self: flex-start;
   }
   .student {
-    margin-left: 15%;
+    margin-left: 22%;
   }
   .prof {
-    margin-left: 27%;
+    margin-left: 65%;
   }
-
   .prof[type="checkbox"],
   .student[type="checkbox"] {
     width: 30px;
