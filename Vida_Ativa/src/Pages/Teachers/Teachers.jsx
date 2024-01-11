@@ -60,7 +60,7 @@ function Teachers() {
         </Button>
         <Listheader />
       </div>
-      <Modal show={show} onHide={handleClose} className="modalAddTeacher">
+      <Modal className="modalAddTeacher" show={show} onHide={handleClose}>
         <form onSubmit={handleSubmitSignup(inHandleSubmit)}>
           <Logo
             width="80px"
@@ -113,12 +113,14 @@ function Teachers() {
             <ErrorText>{errorsSignup.password.message}</ErrorText>
           )}
           {serverError && <ErrorText>{serverError}</ErrorText>}
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button type="submit" variant="primary">
-            Adicionar
-          </Button>
+          <div id="footer">
+            <Button id="cancel" variant="secondary" onClick={handleClose}>
+              Cancelar
+            </Button>
+            <Button className="submit" type="submit" variant="primary">
+              Adicionar
+            </Button>
+          </div>
         </form>
       </Modal>
     </MainTeachers>

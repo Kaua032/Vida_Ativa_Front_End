@@ -19,7 +19,7 @@ export const MainTeachers = styled.main`
     border-radius: 50px;
     background: #0a7de8;
 
-    background-image: url('./plusIcon.png');
+    background-image: url("./plusIcon.png");
     background-repeat: no-repeat;
     background-position: 5px 4px;
 
@@ -35,9 +35,5 @@ export const MainTeachers = styled.main`
     cursor: pointer;
 
     align-self: self-start;
-
-  }
-  .modalAddTeacher{
-    background-color: #ff0000;
   }
 `;
