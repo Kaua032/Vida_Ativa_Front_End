@@ -107,6 +107,20 @@ function Home() {
             <ErrorText>{errorsStudent.cpf.message}</ErrorText>
           )}
           {serverError && <ErrorText>{serverError}</ErrorText>}
+          <Input
+            name="registration"
+            type="date"
+            placeholder="000.000.000-00"
+            autoFocus
+            height="45px"
+            width="460px"
+            radius="20px"
+            register={registerStudent}
+          />
+          {errorsStudent.registration && (
+            <ErrorText>{errorsStudent.registration.message}</ErrorText>
+          )}
+          {serverError && <ErrorText>{serverError}</ErrorText>}
           <div id="footer">
             <Button id="cancel" variant="secondary" onClick={handleClose}>
               Cancelar
