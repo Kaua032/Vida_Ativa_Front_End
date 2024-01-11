@@ -36,6 +36,31 @@ export const ListArea = styled.div`
   table {
     margin-top: 15px;
   }
+  .buttonSubmit {
+    width: 200px;
+    border: none;
+    padding: 11px 75px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    background: #0a7de8;
+    color: #fff;
+
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  #submitButton{
+    display: none;
+  }
+  #shadowButton{
+    background-color: #8c9cac99;
+    cursor: auto;
+  }
 `;
 
 export const LineTeacher = styled.div`
@@ -51,15 +76,6 @@ export const LineTeacher = styled.div`
 
   border-top: 1px solid #dcdcdc;
   padding: 10px 15px;
-
-  form {
-    width: 100%;
-    display: flex;
-  }
-
-  form * {
-    width: 25%;
-  }
   .cpf {
     text-align: center;
   }
@@ -89,16 +105,5 @@ export const LineTeacher = styled.div`
     background-image: url("/checkedInput.svg");
     background-repeat: no-repeat;
     background-position: center;
-  }
-
-  .buttonSubmit {
-    width: 24px;
-    height: 24px;
-    border: none;
-    margin-left: 5px;
-    cursor: pointer;
-    background-image: url("/correto.png");
-    background-repeat: no-repeat;
-    border-radius: 25px;
   }
 `;

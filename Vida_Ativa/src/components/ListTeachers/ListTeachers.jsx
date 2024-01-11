@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { SpaceSearch } from "../Search/SearchStyled";
 import { LineTeacher, ListArea } from "./ListTeachersStyled";
 import { allUsers, updateUser } from "../../services/userService";
-import { updateUserSchema } from "../../schemas/updateUserSchema";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 function Listheader() {
   const [infoAllUsers, setInfoAllUsers] = useState();
@@ -23,15 +20,33 @@ function Listheader() {
       inputTeacher.checked = infoAllUsers[index].add_teacher;
     }
   }
-  function ChangeInput(index) {
-    const buttonSubmit = document.getElementById(`${index}submitbutton`);
-    if (buttonSubmit) {
-      buttonSubmit.style.display = "flex";
-    }
+  
+  function changeButtons(){
+    document.getElementById("shadowButton").style.display = "none"
+    document.getElementById("submitButton").style.display = "flex"
   }
 
-  const { register: registerUpdateUser, handleSubmit: handleSubmitUpdateUser } =
-    useForm({ resolver: zodResolver(updateUserSchema) });
+  function assemblingData() {
+    document.getElementById("shadowButton").style.display = "flex"
+    document.getElementById("submitButton").style.display = "none"
+    let dataUsers = [];
+    if (infoAllUsers) {
+      for (let i = 0; i < infoAllUsers.length; i++) {
+        const inputCpf = document.getElementById(`${i}cpf`).value;
+        const inputStudent = document.getElementById(`${i}student`).checked;
+        const inputProf = document.getElementById(`${i}prof`).checked;
+
+        const currentUser = {
+          cpf: inputCpf,
+          add_student: Boolean(inputStudent),
+          add_teacher: Boolean(inputProf),
+        };
+
+        dataUsers.push(currentUser);
+      }
+    }
+    return inHandleSubmit(dataUsers)
+  }
 
   async function inHandleSubmit(data) {
     try {
@@ -76,38 +91,39 @@ function Listheader() {
         infoAllUsers.map((user, index) => (
           // eslint-disable-next-line react/jsx-key
           <LineTeacher>
-            <form onSubmit={handleSubmitUpdateUser(inHandleSubmit)}>
-              <p className="teacher">{user.name}</p>
-              <p className="cpf">{user.cpf}</p>
-              <input
-                type="hidden"
-                name="cpf"
-                value={user.cpf}
-                {...registerUpdateUser("cpf")}
-              />
-              <input
-                id={`${index}student`}
-                className="student"
-                type="checkbox"
-                name="add_student"
-                {...registerUpdateUser("add_student")}
-              />
-              <input
-                id={`${index}prof`}
-                className="prof"
-                type="checkbox"
-                name="add_teacher"
-                defaultChecked={user.add_teacher}
-                {...registerUpdateUser("add_teacher")}
-              />
-              <button
-                className="buttonSubmit"
-                id={`${index}submitbutton`}
-                type="submit"
-              ></button>
-            </form>
+            <p className="teacher">{user.name}</p>
+            <p className="cpf">{user.cpf}</p>
+            <input
+              type="hidden"
+              name="cpf"
+              id={`${index}cpf`}
+              value={user.cpf}
+            />
+            <input
+              id={`${index}student`}
+              className="student"
+              type="checkbox"
+              name="add_student"
+              onChange={() => changeButtons()}
+            />
+            <input
+              id={`${index}prof`}
+              className="prof"
+              type="checkbox"
+              name="add_teacher"
+              onChange={() => changeButtons()}
+            />
           </LineTeacher>
         ))}
+      <button
+        className="buttonSubmit"
+        id="submitButton"
+        type="submit"
+        onClick={() => assemblingData()}
+      >
+        Salvar
+      </button>
+      <button className="buttonSubmit" id="shadowButton">Salvar</button>
     </ListArea>
   );
 }
