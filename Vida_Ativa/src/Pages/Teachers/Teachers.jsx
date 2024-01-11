@@ -47,7 +47,6 @@ function Teachers() {
       window.location.reload();
     } catch (error) {
       setServerError(error.response.data.message);
-      console.log(error);
     }
   }
 
