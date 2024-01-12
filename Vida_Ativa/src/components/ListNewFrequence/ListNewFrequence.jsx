@@ -3,7 +3,7 @@ import { AllStudents } from "../../services/studentService";
 import { SpaceSearch } from "../Search/SearchStyled";
 import { ListNewFrequenceArea } from "./ListNewFrequenceStyled";
 
-function ListNewFrequence() {
+function ListNewFrequence({ ...props }) {
   const [infoAllStudents, setInfoAllStudents] = useState();
 
   async function FindAllStudents() {
@@ -16,14 +16,18 @@ function ListNewFrequence() {
     setInfoAllStudents(students);
   }
 
+  const closeList = () => props.onClose();
+
   useEffect(() => {
     FindAllStudents();
   }, []);
   return (
-    <ListNewFrequenceArea>
+    <ListNewFrequenceArea {...props}>
       <div>
         <button id="send">Enviar</button>
-        <button id="cancel">Cancelar</button>
+        <button id="cancel" onClick={closeList}>
+          Cancelar
+        </button>
       </div>
       <section>
         <header>

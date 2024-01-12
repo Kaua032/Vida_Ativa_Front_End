@@ -15,7 +15,13 @@ import { RegisterStudent } from "../../services/studentService";
 import ListNewFrequence from "../../components/ListNewFrequence/ListNewFrequence";
 
 function Home() {
+  const [showNewFrequence, setNewFrequence] = useState("none");
   const [show, setShow] = useState(false);
+
+  const newFrequenceClose = () => setNewFrequence("none");
+  const newFrequenceShow = () => {
+    setNewFrequence("flex");
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -65,10 +71,17 @@ function Home() {
           >
             Novo Aluno
           </Button>
-          <DefaultButton img="./plusIcon.png" text="Nova Frequência" />
+          <DefaultButton
+            img="./plusIcon.png"
+            text="Nova Frequência"
+            onClick={newFrequenceShow}
+          />
           <DefaultButton img="./searchIcon.png" text="Consultar Frequência" />
         </div>
-        <ListNewFrequence />
+        <ListNewFrequence
+          display={showNewFrequence}
+          onClose={newFrequenceClose}
+        />
       </div>
       <Modal className="modalAddTeacher" show={show} onHide={handleClose}>
         <form onSubmit={handleSubmitStudent(inHandleSubmit)}>
