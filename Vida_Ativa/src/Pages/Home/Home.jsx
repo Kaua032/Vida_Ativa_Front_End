@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { studentSchema } from "../../schemas/studentSchema";
 import { RegisterStudent } from "../../services/studentService";
+import ListNewFrequence from "../../components/ListNewFrequence/ListNewFrequence";
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -67,6 +68,7 @@ function Home() {
           <DefaultButton img="./plusIcon.png" text="Nova Frequência" />
           <DefaultButton img="./searchIcon.png" text="Consultar Frequência" />
         </div>
+        <ListNewFrequence />
       </div>
       <Modal className="modalAddTeacher" show={show} onHide={handleClose}>
         <form onSubmit={handleSubmitStudent(inHandleSubmit)}>
