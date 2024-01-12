@@ -45,6 +45,9 @@ export const ListNewFrequenceArea = styled.div`
   section {
     width: 100%;
     padding: 50px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
     border-radius: 15px;
     border: 1px solid #dcdcdc;

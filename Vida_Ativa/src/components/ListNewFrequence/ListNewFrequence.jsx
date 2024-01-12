@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { AllStudents } from "../../services/studentService";
 import { SpaceSearch } from "../Search/SearchStyled";
 import { ListNewFrequenceArea } from "./ListNewFrequenceStyled";
+import { addFrequence } from "../../services/frequenceService";
+import { ErrorText } from "../../Pages/Login/LoginStyled";
 
 function ListNewFrequence({ ...props }) {
   const [infoAllStudents, setInfoAllStudents] = useState();
+  const [serverError, setServerError] = useState("");
 
   async function FindAllStudents() {
     const studentResponse = await AllStudents();
@@ -18,13 +21,49 @@ function ListNewFrequence({ ...props }) {
 
   const closeList = () => props.onClose();
 
+  function assembleData() {
+    let dataStudents = [];
+    if (infoAllStudents) {
+      for (let i = 0; i < infoAllStudents.length; i++) {
+        const currentCpf = document.getElementById(`${i}cpf`).value;
+        const dateClass = document.getElementById(`dateClass`).value;
+        const currentFrequence = document.getElementById(
+          `${i}frequence`
+        ).checked;
+
+        const currentStudent = {
+          cpf_student: currentCpf,
+          class_date: dateClass,
+          frequence: currentFrequence,
+        };
+
+        dataStudents.push(currentStudent);
+      }
+    }
+
+    console.log(dataStudents);
+    handleSubmit(dataStudents);
+    closeList();
+  }
+
+  async function handleSubmit(data) {
+    try {
+      await addFrequence(data);
+      window.location.reload();
+    } catch (error) {
+      setServerError(error.response.data.message);
+    }
+  }
+
   useEffect(() => {
     FindAllStudents();
   }, []);
   return (
     <ListNewFrequenceArea {...props}>
       <div>
-        <button id="send">Enviar</button>
+        <button id="send" onClick={assembleData}>
+          Enviar
+        </button>
         <button id="cancel" onClick={closeList}>
           Cancelar
         </button>
@@ -43,6 +82,7 @@ function ListNewFrequence({ ...props }) {
               </SpaceSearch>
             </form>
           </div>
+          {serverError && <ErrorText>{serverError}</ErrorText>}
         </header>
         <table>
           <thead>
