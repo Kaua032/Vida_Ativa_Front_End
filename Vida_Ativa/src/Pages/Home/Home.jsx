@@ -23,8 +23,13 @@ function Home() {
   const newFrequenceClose = () => setNewFrequence("none");
   const newFrequenceShow = () => setNewFrequence("flex");
 
-  const consultFrequenceClose = () => setShowConsultFrequence("none");
-  const consultFrequenceShow = () => setShowConsultFrequence("flex");
+  const consultFrequenceShowOrClose = () => {
+    if (showConsultFrequence === "none") {
+      setShowConsultFrequence("flex");
+    } else if (showConsultFrequence === "flex") {
+      setShowConsultFrequence("none");
+    }
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -79,13 +84,17 @@ function Home() {
             text="Nova Frequência"
             onClick={newFrequenceShow}
           />
-          <DefaultButton img="./searchIcon.png" text="Consultar Frequência" />
+          <DefaultButton
+            img="./searchIcon.png"
+            text="Consultar Frequência"
+            onClick={consultFrequenceShowOrClose}
+          />
         </div>
         <ListNewFrequence
           display={showNewFrequence}
           onClose={newFrequenceClose}
         />
-        <ConsultListFrequence/>
+        <ConsultListFrequence display={showConsultFrequence} />
       </div>
       <Modal className="modalAddTeacher" show={show} onHide={handleClose}>
         <form onSubmit={handleSubmitStudent(inHandleSubmit)}>

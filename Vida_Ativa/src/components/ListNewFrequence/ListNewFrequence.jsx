@@ -41,7 +41,6 @@ function ListNewFrequence({ ...props }) {
       }
     }
 
-    console.log(dataStudents);
     handleSubmit(dataStudents);
     closeList();
   }

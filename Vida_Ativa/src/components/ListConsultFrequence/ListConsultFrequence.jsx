@@ -35,11 +35,20 @@ function ConsultListFrequence({ ...props }) {
     try {
       const response = await FrequenceByDate(data);
 
+      response.data.infoFrequence.map((student) => {
+        let date = new Date(student.registration);
+        student.registration = date.toLocaleDateString("pt-BR");
+        return student;
+      });
+
       if (!response.data.message) {
-        console.log(response.data.frequences);
-        setInfoAllStudents(response.data.frequences);
+        const sortedInfoAllStudents = response.data.infoFrequence.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        console.log(sortedInfoAllStudents);
+        setInfoAllStudents(sortedInfoAllStudents);
       } else {
-        console.log(response.data.message);
         setInfoAllStudents();
       }
     } catch (error) {
@@ -52,20 +61,22 @@ function ConsultListFrequence({ ...props }) {
   }, []);
 
   return (
-    <ConsultListFrequenceArea>
-      <header>
-        <p>Lista de Alunos</p>
-        <input id="dateConsult" type="date" onChange={() => GetDate()} />
-        <form action="">
-          <SpaceSearch>
-            <input type="text" placeholder="Buscar" />
-            <button type="submit">
-              <img src="/SearchListIcon.svg" alt="" />
-            </button>
-          </SpaceSearch>
-        </form>
-      </header>
+    <ConsultListFrequenceArea display={props.display}>
       <section>
+        <header>
+          <div id="header1">
+            <p>Lista de Alunos</p>
+            <input id="dateConsult" type="date" onChange={() => GetDate()} />
+            <form action="">
+              <SpaceSearch>
+                <input type="text" placeholder="Buscar" />
+                <button type="submit">
+                  <img src="/SearchListIcon.svg" alt="" />
+                </button>
+              </SpaceSearch>
+            </form>
+          </div>
+        </header>
         <table>
           <thead>
             <tr>
@@ -92,13 +103,13 @@ function ConsultListFrequence({ ...props }) {
                     <p id="studentName">{user.name}</p>
                   </td>
                   <td>
-                    <p>{user.cpf_student}</p>
+                    <p>{user.cpf}</p>
                   </td>
                   <input
                     type="hidden"
                     name="cpf"
                     id={`${index}cpf`}
-                    value={user.cpf_student}
+                    value={user.cpf}
                   />
                   <td className="titleRegistrations">
                     <p>{user.registration}</p>
@@ -108,7 +119,7 @@ function ConsultListFrequence({ ...props }) {
                       id={`${index}frequence`}
                       type="checkbox"
                       name="frequence"
-                      defaultChecked={user.frequence}
+                      checked={user.frequence}
                       className="frequence"
                     />
                   </td>
