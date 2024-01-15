@@ -21,10 +21,20 @@ function Home() {
   const [show, setShow] = useState(false);
 
   const newFrequenceClose = () => setNewFrequence("none");
-  const newFrequenceShow = () => setNewFrequence("flex");
+
+  const newFrequenceShow = () => {
+    if(showNewFrequence === "flex"){
+      setNewFrequence("none");
+    }
+    else{
+      setShowConsultFrequence("none");
+      setNewFrequence("flex");
+    }
+  };
 
   const consultFrequenceShowOrClose = () => {
     if (showConsultFrequence === "none") {
+      setNewFrequence("none");
       setShowConsultFrequence("flex");
     } else if (showConsultFrequence === "flex") {
       setShowConsultFrequence("none");

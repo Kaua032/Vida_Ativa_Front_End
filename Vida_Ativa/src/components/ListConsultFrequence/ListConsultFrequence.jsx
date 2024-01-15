@@ -35,13 +35,12 @@ function ConsultListFrequence({ ...props }) {
     try {
       const response = await FrequenceByDate(data);
 
-      response.data.infoFrequence.map((student) => {
-        let date = new Date(student.registration);
-        student.registration = date.toLocaleDateString("pt-BR");
-        return student;
-      });
-
       if (!response.data.message) {
+        response.data.infoFrequence.map((student) => {
+          let date = new Date(student.registration);
+          student.registration = date.toLocaleDateString("pt-BR");
+          return student;
+        });
         const sortedInfoAllStudents = response.data.infoFrequence.sort((a, b) =>
           a.name.localeCompare(b.name)
         );
@@ -127,8 +126,9 @@ function ConsultListFrequence({ ...props }) {
               ))
             ) : (
               <tr>
-                <td colSpan="4">
+                <td id="columnNoneFrequence" colSpan="4">
                   <img src="./alerta.png" alt="Alerta" />
+                  <p>Não há frequências nessa data.</p>
                 </td>
               </tr>
             )}

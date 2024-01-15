@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const ConsultListFrequenceArea = styled.div`
-    max-width: 1000px;
-    width: 100%;
+  max-width: 1000px;
+  width: 100%;
 
-    display: ${(props) => props.display};
-    flex-direction: column;
-    gap: 15px;
+  display: ${(props) => props.display};
+  flex-direction: column;
+  gap: 15px;
 
-     section {
+  section {
     width: 100%;
     padding: 50px 20px 10px 20px;
     display: flex;
@@ -38,7 +38,7 @@ export const ConsultListFrequenceArea = styled.div`
     font-weight: 700;
     line-height: normal;
   }
-  section header #header1 #dateClass {
+  section header #header1 #dateConsult {
     border: none;
 
     color: #525668;
@@ -66,6 +66,23 @@ export const ConsultListFrequenceArea = styled.div`
   table tbody tr td {
     width: 25%;
   }
+  #columnNoneFrequence {
+    text-align: center;
+    vertical-align: middle;
+  }
+  #columnNoneFrequence img {
+    width: 200px;
+  }
+  #columnNoneFrequence p {
+    color: #b22222;
+
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
   .titleNames {
     width: 30%;
   }
@@ -80,7 +97,7 @@ export const ConsultListFrequenceArea = styled.div`
     width: 30%;
   }
   .frequence[type="checkbox"]:checked {
-    appearance: none; /* remove o estilo padrão do navegador */
+    appearance: none;
     background-color: #008037;
     border-radius: 5px;
     width: 30px;
@@ -91,4 +108,4 @@ export const ConsultListFrequenceArea = styled.div`
     background-repeat: no-repeat;
     background-position: center;
   }
-`
+`;
