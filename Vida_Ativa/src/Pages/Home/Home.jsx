@@ -13,15 +13,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { studentSchema } from "../../schemas/studentSchema";
 import { RegisterStudent } from "../../services/studentService";
 import ListNewFrequence from "../../components/ListNewFrequence/ListNewFrequence";
+import ConsultListFrequence from "../../components/ListConsultFrequence/ListConsultFrequence";
 
 function Home() {
   const [showNewFrequence, setNewFrequence] = useState("none");
+  const [showConsultFrequence, setShowConsultFrequence] = useState("none");
   const [show, setShow] = useState(false);
 
   const newFrequenceClose = () => setNewFrequence("none");
-  const newFrequenceShow = () => {
-    setNewFrequence("flex");
-  };
+  const newFrequenceShow = () => setNewFrequence("flex");
+
+  const consultFrequenceClose = () => setShowConsultFrequence("none");
+  const consultFrequenceShow = () => setShowConsultFrequence("flex");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -82,6 +85,7 @@ function Home() {
           display={showNewFrequence}
           onClose={newFrequenceClose}
         />
+        <ConsultListFrequence/>
       </div>
       <Modal className="modalAddTeacher" show={show} onHide={handleClose}>
         <form onSubmit={handleSubmitStudent(inHandleSubmit)}>

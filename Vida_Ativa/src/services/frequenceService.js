@@ -21,3 +21,10 @@ export function addFrequence(data) {
   });
   return response;
 }
+
+export function FrequenceByDate(data) {
+  const response = axios.get(`${baseURL}/frequence/consult`, {
+    params: data,
+  });
+  return response;
+}
