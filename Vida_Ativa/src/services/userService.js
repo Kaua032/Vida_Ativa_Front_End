@@ -43,3 +43,12 @@ export function updateUser(data) {
   });
   return response;
 }
+
+export function updatePasswordUser(data) {
+  const response = axios.put(`${baseURL}/user/changepassword`, data, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  });
+  return response;
+}

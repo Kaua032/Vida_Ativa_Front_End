@@ -5,11 +5,15 @@ export const MainHome = styled.main`
 
   #painel {
     width: 100%;
+    max-width: 1000px;
     display: flex;
+    align-self: flex-end;
     flex-direction: column;
     align-items: center;
+    gap: 50px;
 
     padding: 50px;
+    margin-left: 24.65277777777778%;
   }
   #painel_buttons {
     width: 630px;

@@ -8,6 +8,7 @@ export const MainNav = styled.header`
   width: 290px;
   height: 100vh;
   padding: 20px 20px 20px 20px;
+  position: fixed;
 `;
 export const NavNav = styled.nav`
   display: flex;
@@ -41,6 +42,10 @@ export const PerfilNav = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+  }
+
+  div {
+    cursor: pointer;
   }
 
   #logout {
