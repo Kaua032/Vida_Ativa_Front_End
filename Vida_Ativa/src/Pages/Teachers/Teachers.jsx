@@ -54,9 +54,15 @@ function Teachers() {
     <MainTeachers>
       <Navbar type1="1" type2="2" state1="off" state2="on" />
       <div id="painel">
-        <Button variant="primary" onClick={handleShow} className="new-teacher">
-          Novo Professor
-        </Button>
+        <div id="divButton">
+          <Button
+            variant="primary"
+            onClick={handleShow}
+            className="new-teacher"
+          >
+            Novo Professor
+          </Button>
+        </div>
         <Listheader />
       </div>
       <Modal className="modalAddTeacher" show={show} onHide={handleClose}>

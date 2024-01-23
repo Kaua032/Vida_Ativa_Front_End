@@ -4,13 +4,21 @@ export const MainTeachers = styled.main`
   display: flex;
 
   #painel {
+    max-width: 1000px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 
-    padding: 50px 268px;
+    padding: 50px ;
+    margin-left: 24.65277777777778%;
+  }
+  #painel #divButton {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: flex-start;
   }
   #painel .new-teacher {
     height: 40px;
@@ -33,7 +41,5 @@ export const MainTeachers = styled.main`
     line-height: normal;
 
     cursor: pointer;
-
-    align-self: self-start;
   }
 `;
