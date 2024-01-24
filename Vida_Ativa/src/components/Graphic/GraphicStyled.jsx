@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const GraphicStyle = styled.div`
   max-width: 1000px;
+  min-width: 560px;
   width: 100%;
   height: 350px;
 
@@ -10,7 +11,6 @@ export const GraphicStyle = styled.div`
   background: #f9fbfe;
 
   padding: 20px;
-
   #header {
     display: flex;
     gap: 20px;

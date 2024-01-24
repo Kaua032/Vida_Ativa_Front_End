@@ -23,10 +23,9 @@ function Home() {
   const newFrequenceClose = () => setNewFrequence("none");
 
   const newFrequenceShow = () => {
-    if(showNewFrequence === "flex"){
+    if (showNewFrequence === "flex") {
       setNewFrequence("none");
-    }
-    else{
+    } else {
       setShowConsultFrequence("none");
       setNewFrequence("flex");
     }
@@ -80,7 +79,21 @@ function Home() {
     <MainHome>
       <Navbar type1="1" type2="2" state1="on" state2="off" />
       <div id="painel">
-        <Graphic />
+        <div id="painel_header">
+          <div className="spaceHeader">
+            <img src="./hamburguer.svg" alt="" />
+          </div>
+          <Logo
+            width="80px"
+            height="38.405px"
+            font_size="25px"
+            direction="row"
+          />
+          <div className="spaceHeader"></div>
+        </div>
+        <div id="backgroundGraphic">
+          <Graphic />
+        </div>
         <div id="painel_buttons">
           <Button
             variant="primary"

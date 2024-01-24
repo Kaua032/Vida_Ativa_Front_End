@@ -16,9 +16,9 @@ export const MainHome = styled.main`
     margin-left: 24.65277777777778%;
   }
   #painel_buttons {
-    width: 630px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     margin: auto;
   }
   #painel_buttons .new-student {
@@ -42,5 +42,32 @@ export const MainHome = styled.main`
     line-height: normal;
 
     cursor: pointer;
+  }
+  #painel_header {
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+  #painel_header .spaceHeader {
+    width: 30px;
+    height: 30px;
+  }
+
+  #backgroundGraphic {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+  }
+  #backgroundGraphic::-webkit-scrollbar{
+    width: 0;
+  }
+
+  @media (max-width: 1000px) {
+    #painel {
+      margin-left: 0;
+    }
+    #painel_header {
+      display: flex;
+    }
   }
 `;

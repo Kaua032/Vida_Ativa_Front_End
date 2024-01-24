@@ -9,6 +9,9 @@ export const MainNav = styled.header`
   height: 100vh;
   padding: 20px 20px 20px 20px;
   position: fixed;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 export const NavNav = styled.nav`
   display: flex;
