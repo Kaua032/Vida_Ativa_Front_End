@@ -82,7 +82,7 @@ function ConsultListFrequence({ ...props }) {
               <th className="titleNames">
                 <p>Nome</p>
               </th>
-              <th>
+              <th className="titleCpfs">
                 <p>CPF</p>
               </th>
               <th className="titleRegistrations">
@@ -101,7 +101,7 @@ function ConsultListFrequence({ ...props }) {
                   <td className="titleNames">
                     <p id="studentName">{user.name}</p>
                   </td>
-                  <td>
+                  <td className="titleCpfs">
                     <p>{user.cpf}</p>
                   </td>
                   <input

@@ -3,10 +3,17 @@ import styled from "styled-components";
 export const ListNewFrequenceArea = styled.div`
   max-width: 1000px;
   width: 100%;
+  padding: 30px;
 
   display: ${(props) => props.display};
   flex-direction: column;
   gap: 15px;
+
+  #painelButtons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
 
   div #send {
     width: 200px;
@@ -27,7 +34,6 @@ export const ListNewFrequenceArea = styled.div`
   div #cancel {
     width: 200px;
     height: 40px;
-    margin-left: 35px;
 
     border-radius: 50px;
     border: 1px solid #868686;
@@ -63,6 +69,9 @@ export const ListNewFrequenceArea = styled.div`
     width: 100%;
 
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   section header p {
     color: #525668;
@@ -124,5 +133,15 @@ export const ListNewFrequenceArea = styled.div`
     background-image: url("/checkedInput.svg");
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  @media (max-width: 700px){
+    .titleCpfs, .titleRegistrations{
+      display: none;
+  }
+  @media (max-width: 495px){
+    #painelButtons{
+      justify-content: center;
+    }
   }
 `;

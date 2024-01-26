@@ -84,8 +84,8 @@ function Home() {
             <img src="./hamburguer.svg" alt="" />
           </div>
           <Logo
-            width="80px"
-            height="38.405px"
+            width="0px"
+            height="0px"
             font_size="25px"
             direction="row"
           />

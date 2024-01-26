@@ -59,7 +59,7 @@ function ListNewFrequence({ ...props }) {
   }, []);
   return (
     <ListNewFrequenceArea {...props}>
-      <div>
+      <div id="painelButtons">
         <button id="send" onClick={assembleData}>
           Enviar
         </button>
@@ -89,7 +89,7 @@ function ListNewFrequence({ ...props }) {
               <th className="titleNames">
                 <p>Nome</p>
               </th>
-              <th>
+              <th className="titleCpfs">
                 <p>CPF</p>
               </th>
               <th className="titleRegistrations">
@@ -108,7 +108,7 @@ function ListNewFrequence({ ...props }) {
                   <td className="titleNames">
                     <p id="studentName">{user.name}</p>
                   </td>
-                  <td>
+                  <td className="titleCpfs">
                     <p>{user.cpf}</p>
                   </td>
                   <input

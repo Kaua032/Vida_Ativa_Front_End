@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ConsultListFrequenceArea = styled.div`
   max-width: 1000px;
   width: 100%;
+  padding: 30px;
 
   display: ${(props) => props.display};
   flex-direction: column;
@@ -27,6 +28,8 @@ export const ConsultListFrequenceArea = styled.div`
   section header #header1 {
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
 
     justify-content: space-between;
   }
@@ -107,5 +110,10 @@ export const ConsultListFrequenceArea = styled.div`
     background-image: url("/checkedInput.svg");
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  @media (max-width: 650px){
+    .titleCpfs, .titleRegistrations{
+      display: none;
   }
 `;

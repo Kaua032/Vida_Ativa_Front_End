@@ -65,9 +65,17 @@ export const MainHome = styled.main`
   @media (max-width: 1000px) {
     #painel {
       margin-left: 0;
+      padding: 0;
     }
     #painel_header {
       display: flex;
+      padding: 30px;
+    }
+    #backgroundGraphic{
+      padding: 20px;
+    }
+    #painel_buttons{
+      padding: 30px;
     }
   }
 `;
