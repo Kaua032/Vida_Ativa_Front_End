@@ -11,7 +11,7 @@ export const MainTeachers = styled.main`
     align-items: center;
     gap: 20px;
 
-    padding: 50px ;
+    padding: 50px;
     margin-left: 24.65277777777778%;
   }
   #painel #divButton {
@@ -41,5 +41,10 @@ export const MainTeachers = styled.main`
     line-height: normal;
 
     cursor: pointer;
+  }
+  @media (max-width: 1000px) {
+    #painel {
+      margin-left: 0;
+    }
   }
 `;
