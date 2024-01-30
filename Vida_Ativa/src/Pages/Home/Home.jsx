@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DefaultButton from "../../components/Button/DefaultButton";
 import Graphic from "../../components/Graphic/Graphic";
 import Input from "../../components/Input/Input";
@@ -14,8 +14,10 @@ import { studentSchema } from "../../schemas/studentSchema";
 import { RegisterStudent } from "../../services/studentService";
 import ListNewFrequence from "../../components/ListNewFrequence/ListNewFrequence";
 import ConsultListFrequence from "../../components/ListConsultFrequence/ListConsultFrequence";
+import { findUser } from "../../services/userService.js";
 
 function Home() {
+  const [displayAddStudent, setDisplayAddStudent] = useState("");
   const [showNewFrequence, setNewFrequence] = useState("none");
   const [showConsultFrequence, setShowConsultFrequence] = useState("none");
   const [show, setShow] = useState(false);
@@ -42,6 +44,17 @@ function Home() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  async function findUserLogged() {
+    const response = await findUser();
+    IfAddStudent(response.data.user);
+  }
+
+  function IfAddStudent(user) {
+    if (user.add_student == false) {
+      setDisplayAddStudent("none");
+    }
+  }
 
   function mascara(e) {
     var v = e.target.value;
@@ -75,20 +88,19 @@ function Home() {
     }
   }
 
+  useEffect(() => {
+    findUserLogged();
+  }, []);
+
   return (
-    <MainHome>
+    <MainHome display={displayAddStudent}>
       <Navbar type1="1" type2="2" state1="on" state2="off" />
       <div id="painel">
         <div id="painel_header">
           <div className="spaceHeader">
             <img src="./hamburguer.svg" alt="" />
           </div>
-          <Logo
-            width="0px"
-            height="0px"
-            font_size="25px"
-            direction="row"
-          />
+          <Logo width="0px" height="0px" font_size="25px" direction="row" />
           <div className="spaceHeader"></div>
         </div>
         <div id="backgroundGraphic">

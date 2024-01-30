@@ -22,6 +22,7 @@ export const MainHome = styled.main`
     margin: auto;
   }
   #painel_buttons .new-student {
+    display: ${(props) => (props.display)};
     height: 40px;
     padding: 0px 15px 0px 45px;
 
