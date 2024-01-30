@@ -1,9 +1,9 @@
 import { ButtonNavStyle } from "../ButtonNavbar/ButtonNavbarStyled.jsx";
 
-function ButtonNavbar({ state, content, type }) {
+function ButtonNavbar({ ...props }) {
   return (
-    <ButtonNavStyle type={type} state={state}>
-      {content}
+    <ButtonNavStyle display={props.display} type={props.type} state={props.state}>
+      {props.content}
     </ButtonNavStyle>
   );
 }

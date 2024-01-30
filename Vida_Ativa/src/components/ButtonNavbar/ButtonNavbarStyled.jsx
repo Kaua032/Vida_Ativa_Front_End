@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const ButtonNavStyle = styled.button`
+  display: ${(props) => (props.display)};
+
   width: 250px;
   height: 45px;
 
@@ -12,6 +14,7 @@ export const ButtonNavStyle = styled.button`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  text-decoration: none;
 
   color: ${(props) => (props.state === "on" ? "#ffffff;" : "#525668")};
   background: ${(props) => (props.state === "on" ? "#0A7DE8;" : "none")};

@@ -20,6 +20,7 @@ function Navbar({ type1, type2, state1, state2 }) {
   const [userLoaded, setUserLoaded] = useState(false);
   const [show, setShow] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [displayAddTeacher, setDisplayAddTeacher] = useState("")
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -51,10 +52,19 @@ function Navbar({ type1, type2, state1, state2 }) {
     try {
       const response = await findUser();
       setUser(response.data.user);
+      await ifCanAddTeacher(response.data.user);
       setUserLoaded(true);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function ifCanAddTeacher(user) {
+    if (user.add_teacher == false) {
+      setDisplayAddTeacher("none")
+      return
+    }
+    return setDisplayAddTeacher("")
   }
 
   useEffect(() => {
@@ -71,10 +81,20 @@ function Navbar({ type1, type2, state1, state2 }) {
         <Logo width="80px" height="38.405px" font_size="25px" direction="row" />
         <div id="buttons">
           <Link to="/home">
-            <ButtonNavbar type={type1} state={state1} content="Frequência" />
+            <ButtonNavbar
+              display=""
+              type={type1}
+              state={state1}
+              content="Frequência"
+            />
           </Link>
           <Link to="/teachers">
-            <ButtonNavbar type={type2} state={state2} content="Permissões" />
+            <ButtonNavbar
+              display={displayAddTeacher}
+              type={type2}
+              state={state2}
+              content="Permissões"
+            />
           </Link>
         </div>
       </NavNav>
