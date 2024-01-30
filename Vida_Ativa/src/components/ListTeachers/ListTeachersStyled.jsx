@@ -24,14 +24,9 @@ export const ListArea = styled.div`
   #header1 {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 0px 20px;
-  }
-  #header2 {
-    display: flex;
-
-    margin-top: 25px;
-    justify-content: space-between;
-    padding: 0px 40px 0px 20px;
   }
 
   table {
@@ -106,5 +101,15 @@ export const ListArea = styled.div`
     background-image: url("/checkedInput.svg");
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  @media (max-width: 610px){
+    .titleCpfs{
+      display: none;
+    }
+  }
+
+  @media (max-width: 330px){
+    padding: 55px 10px 10px 10px;
   }
 `;

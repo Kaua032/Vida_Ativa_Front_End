@@ -45,6 +45,7 @@ export const MainTeachers = styled.main`
   @media (max-width: 1000px) {
     #painel {
       margin-left: 0;
+      padding: 10px;
     }
   }
 `;
