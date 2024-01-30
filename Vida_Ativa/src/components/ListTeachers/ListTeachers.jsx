@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SpaceSearch } from "../Search/SearchStyled";
-import { LineTeacher, ListArea } from "./ListTeachersStyled";
+import { ListArea } from "./ListTeachersStyled";
 import { allUsers, updateUser } from "../../services/userService";
 
 function Listheader() {
@@ -80,49 +80,63 @@ function Listheader() {
             </SpaceSearch>
           </form>
         </div>
-        <div id="header2">
-          <p>Nome</p>
-          <p>CPF</p>
-          <p>Aluno</p>
-          <p>Prof</p>
-        </div>
       </header>
-      {infoAllUsers &&
-        infoAllUsers.map((user, index) => (
-          // eslint-disable-next-line react/jsx-key
-          <LineTeacher>
-            <div className="teacher">
-              <p id="techearName">{user.name}</p>
-            </div>
-            <div className="cpf">
-              <p>{user.cpf}</p>
-            </div>
-            <input
-              type="hidden"
-              name="cpf"
-              id={`${index}cpf`}
-              value={user.cpf}
-            />
-            <div>
-              <input
-                id={`${index}student`}
-                className="student"
-                type="checkbox"
-                name="add_student"
-                onChange={() => changeButtons()}
-              />
-            </div>
-            <div>
-              <input
-                id={`${index}prof`}
-                className="prof"
-                type="checkbox"
-                name="add_teacher"
-                onChange={() => changeButtons()}
-              />
-            </div>
-          </LineTeacher>
-        ))}
+      <table>
+        <thead>
+          <tr>
+            <th className="titleNames">
+              <p>Nome</p>
+            </th>
+            <th className="titleCpfs">
+              <p>CPF</p>
+            </th>
+            <th className="student">
+              <p>Aluno</p>
+            </th>
+            <th className="teacher">
+              <p>Prof</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {infoAllUsers &&
+            infoAllUsers.map((user, index) => (
+              // eslint-disable-next-line react/jsx-key
+              <tr>
+                <td className="titleNames">
+                  <p id="teacherName">{user.name}</p>
+                </td>
+                <td className="titleCpfs">
+                  <p>{user.cpf}</p>
+                </td>
+                <input
+                  type="hidden"
+                  name="cpf"
+                  id={`${index}cpf`}
+                  value={user.cpf}
+                />
+                <td className="tdStudent">
+                  <input
+                    id={`${index}student`}
+                    className="student"
+                    type="checkbox"
+                    name="add_student"
+                    onChange={() => changeButtons()}
+                  />
+                </td>
+                <td className="tdTeacher">
+                  <input
+                    id={`${index}prof`}
+                    className="prof"
+                    type="checkbox"
+                    name="add_teacher"
+                    onChange={() => changeButtons()}
+                  />
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
       <button
         className="buttonSubmit"
         id="submitButton"

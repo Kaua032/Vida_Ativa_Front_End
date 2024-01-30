@@ -5,20 +5,21 @@ export const ListArea = styled.div`
   max-width: 1000px;
   display: flex;
   flex-direction: column;
+  padding: 55px 30px 30px 30px;
 
   border-radius: 15px;
   border: 1px solid #b0b0b0;
 
   background: #fff;
 
-  padding: 55px 0px 10px 0px;
-
-  color: #525668;
-  font-family: Montserrat;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  header p {
+    color: #525668;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 
   #header1 {
     display: flex;
@@ -61,40 +62,30 @@ export const ListArea = styled.div`
     background-color: #8c9cac99;
     cursor: auto;
   }
-`;
-
-export const LineTeacher = styled.div`
-  display: flex;
-
-  color: #525668;
-
-  font-family: Montserrat;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-
-  border-top: 1px solid #dcdcdc;
-  padding: 10px 15px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  table thead {
+    color: #525668;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  table thead tr th,
+  table tbody tr td {
     width: 25%;
   }
-  div p {
-    margin-bottom: 0;
+  .titleNames{
+    width: 40%;
   }
-  div #techearName {
-    align-self: flex-start;
+
+  .teacher p, .student p{
+    text-align: center;
   }
-  .student {
-    margin-left: 22%;
+
+  .tdStudent, .tdTeacher{
+     text-align: center;
   }
-  .prof {
-    margin-left: 65%;
-  }
+
   .prof[type="checkbox"],
   .student[type="checkbox"] {
     width: 30px;
@@ -102,6 +93,7 @@ export const LineTeacher = styled.div`
     border-radius: 5px;
     border: 1px solid #b22222;
   }
+
   .prof[type="checkbox"]:checked,
   .student[type="checkbox"]:checked {
     appearance: none; /* remove o estilo padrão do navegador */
