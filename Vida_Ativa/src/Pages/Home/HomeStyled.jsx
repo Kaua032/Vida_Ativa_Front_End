@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const MainHome = styled.main`
   display: flex;
+  min-height: 100vh;
 
   #painel {
     width: 100%;
+    min-height: 100vh;
     max-width: 1000px;
     display: flex;
     align-self: flex-end;
@@ -12,7 +14,7 @@ export const MainHome = styled.main`
     align-items: center;
     gap: 50px;
 
-    padding: 50px;
+    padding: 50px ;
     margin-left: 24.65277777777778%;
   }
   #painel_buttons {
@@ -67,6 +69,8 @@ export const MainHome = styled.main`
     #painel {
       margin-left: 0;
       padding: 0;
+      padding-left: 3rem;
+      padding-bottom: 50px;
     }
     #painel_header {
       display: flex;

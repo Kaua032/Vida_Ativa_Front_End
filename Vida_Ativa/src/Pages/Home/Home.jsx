@@ -15,6 +15,7 @@ import { RegisterStudent } from "../../services/studentService";
 import ListNewFrequence from "../../components/ListNewFrequence/ListNewFrequence";
 import ConsultListFrequence from "../../components/ListConsultFrequence/ListConsultFrequence";
 import { findUser } from "../../services/userService.js";
+import NavbarMobile from "../../components/NavbarMobile/NavbarMobile.jsx";
 
 function Home() {
   const [displayAddStudent, setDisplayAddStudent] = useState("");
@@ -95,6 +96,7 @@ function Home() {
   return (
     <MainHome display={displayAddStudent}>
       <Navbar type1="1" type2="2" state1="on" state2="off" />
+      <NavbarMobile />
       <div id="painel">
         <div id="painel_header">
           <Logo width="0px" height="0px" font_size="25px" direction="row" />

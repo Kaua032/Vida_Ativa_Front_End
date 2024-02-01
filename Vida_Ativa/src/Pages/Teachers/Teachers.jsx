@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ErrorText } from "../Login/LoginStyled.jsx";
 import Input from "../../components/Input/Input.jsx";
+import NavbarMobile from "../../components/NavbarMobile/NavbarMobile.jsx";
 
 function Teachers() {
   const [show, setShow] = useState(false);
@@ -131,6 +132,7 @@ function Teachers() {
           </div>
         </form>
       </Modal>
+      <NavbarMobile />
     </MainTeachers>
   );
 }

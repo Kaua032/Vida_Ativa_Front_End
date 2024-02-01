@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainTeachers = styled.main`
   display: flex;
+  min-height: 100vh;
 
   #painel {
     max-width: 1000px;
@@ -57,6 +58,7 @@ export const MainTeachers = styled.main`
     #painel {
       margin-left: 0;
       padding: 10px;
+      padding-left: 3.5rem;
     }
     #painel #painel_header {
       display: flex;
