@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin/ButtonLogin.jsx";
 import Input from "../../components/Input/Input.jsx";
 import Logo from "../../components/Logo/Logo.jsx";
@@ -44,6 +44,12 @@ function Login() {
     if (v.length == 3 || v.length == 7) e.target.value += ".";
     if (v.length == 11) e.target.value += "-";
   }
+
+  useEffect(() => {
+    if(Cookies.get("token")){
+      navigate("/home")
+    }
+  }, [])
 
   return (
     <LoginMain>

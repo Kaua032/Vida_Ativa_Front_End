@@ -9,27 +9,10 @@ import Teachers from "./Pages/Teachers/Teachers.jsx";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-function PrivateRoute({ children }) {
-  let navigate = useNavigate();
-  let token = Cookies.get("token");
-
-  useEffect(() => {
-    if (token) {
-      navigate("/home");
-    }
-  }, [navigate, token]);
-
-  return token ? null : children;
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PrivateRoute>
-        <Login />,
-      </PrivateRoute>
-    ),
+    element: <Login />,
   },
   {
     path: "/home",
