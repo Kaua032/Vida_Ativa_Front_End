@@ -42,10 +42,25 @@ export const MainTeachers = styled.main`
 
     cursor: pointer;
   }
+
+  #painel #painel_header {
+    display: none;
+    width: 100%;
+    justify-content: center;
+  }
+  #painel_header .spaceHeader {
+    width: 30px;
+    height: 30px;
+  }
+
   @media (max-width: 1000px) {
     #painel {
       margin-left: 0;
       padding: 10px;
+    }
+    #painel #painel_header {
+      display: flex;
+      padding: 30px 0px;
     }
   }
 `;

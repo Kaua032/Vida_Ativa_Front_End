@@ -97,11 +97,7 @@ function Home() {
       <Navbar type1="1" type2="2" state1="on" state2="off" />
       <div id="painel">
         <div id="painel_header">
-          <div className="spaceHeader">
-            <img src="./hamburguer.svg" alt="" />
-          </div>
           <Logo width="0px" height="0px" font_size="25px" direction="row" />
-          <div className="spaceHeader"></div>
         </div>
         <div id="backgroundGraphic">
           <Graphic />

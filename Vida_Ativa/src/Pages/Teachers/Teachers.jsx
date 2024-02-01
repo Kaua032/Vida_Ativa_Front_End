@@ -54,6 +54,9 @@ function Teachers() {
     <MainTeachers>
       <Navbar type1="1" type2="2" state1="off" state2="on" />
       <div id="painel">
+        <div id="painel_header">
+          <Logo width="0px" height="0px" font_size="25px" direction="row" />
+        </div>
         <div id="divButton">
           <Button
             variant="primary"

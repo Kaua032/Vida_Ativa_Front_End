@@ -47,7 +47,7 @@ export const MainHome = styled.main`
   #painel_header {
     display: none;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
   }
   #painel_header .spaceHeader {
     width: 30px;
@@ -70,13 +70,13 @@ export const MainHome = styled.main`
     }
     #painel_header {
       display: flex;
-      padding: 30px;
+      padding: 40px 10px 40px 10px;
     }
     #backgroundGraphic{
-      padding: 20px;
+      padding: 10px;
     }
     #painel_buttons{
-      padding: 30px;
+      padding: 10px;
     }
   }
 `;
