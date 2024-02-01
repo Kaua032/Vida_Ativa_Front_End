@@ -21,6 +21,7 @@ export const NavMobile = styled.div`
 `;
 
 export const ButtonNavMobile = styled.button`
+  display: ${(props) => props.display};
   width: 40px;
   height: 40px;
   border-radius: 100%;

@@ -67,17 +67,25 @@ function NavbarMobile({ ...props }) {
   }
 
   useEffect(() => {
-    findUserLogged
-  }, [])
+    findUserLogged();
+  }, []);
 
   return (
     <NavbarMobileMain>
       <NavMobile>
         <Link to="/home">
-          <ButtonNavMobile type={props.type1} state={props.state1} />
+          <ButtonNavMobile
+            display="flex"
+            type={props.type1}
+            state={props.state1}
+          />
         </Link>
         <Link to="/teachers">
-          <ButtonNavMobile type={props.type2} state={props.state2} />
+          <ButtonNavMobile
+            display={displayAddTeacher}
+            type={props.type2}
+            state={props.state2}
+          />
         </Link>
       </NavMobile>
       <FooterMobile>
