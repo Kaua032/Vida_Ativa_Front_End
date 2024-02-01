@@ -135,6 +135,10 @@ export const ListNewFrequenceArea = styled.div`
     background-position: center;
   }
 
+  @media (max-width: 1000px){
+    padding: 10px;
+  }
+
   @media (max-width: 700px){
     .titleCpfs, .titleRegistrations{
       display: none;

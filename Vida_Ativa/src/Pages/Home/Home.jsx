@@ -96,7 +96,7 @@ function Home() {
   return (
     <MainHome display={displayAddStudent}>
       <Navbar type1="1" type2="2" state1="on" state2="off" />
-      <NavbarMobile />
+      <NavbarMobile type1="1" type2="2" state1="on" state2="off" />
       <div id="painel">
         <div id="painel_header">
           <Logo width="0px" height="0px" font_size="25px" direction="row" />

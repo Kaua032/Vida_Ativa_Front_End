@@ -112,6 +112,10 @@ export const ConsultListFrequenceArea = styled.div`
     background-position: center;
   }
 
+  @media (max-width: 1000px){
+    padding: 10px;
+  }
+
   @media (max-width: 650px){
     .titleCpfs, .titleRegistrations{
       display: none;
