@@ -23,7 +23,7 @@ export const ListArea = styled.div`
 
   #header1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     padding: 0px 20px;

@@ -71,14 +71,6 @@ function Listheader() {
       <header>
         <div id="header1">
           <p>Lista de Professores</p>
-          <form>
-            <SpaceSearch>
-              <input type="text" placeholder="Buscar" />
-              <button type="submit">
-                <img src="/SearchListIcon.svg" alt="" />
-              </button>
-            </SpaceSearch>
-          </form>
         </div>
       </header>
       <table>

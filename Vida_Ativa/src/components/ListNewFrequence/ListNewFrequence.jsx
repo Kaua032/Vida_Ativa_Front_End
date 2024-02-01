@@ -72,14 +72,6 @@ function ListNewFrequence({ ...props }) {
           <div id="header1">
             <p>Lista de Alunos</p>
             <input id="dateClass" type="date" />
-            <form>
-              <SpaceSearch>
-                <input type="text" placeholder="Buscar" />
-                <button type="submit">
-                  <img src="/SearchListIcon.svg" alt="" />
-                </button>
-              </SpaceSearch>
-            </form>
           </div>
           {serverError && <ErrorText>{serverError}</ErrorText>}
         </header>

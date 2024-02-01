@@ -66,14 +66,6 @@ function ConsultListFrequence({ ...props }) {
           <div id="header1">
             <p>Lista de Alunos</p>
             <input id="dateConsult" type="date" onChange={() => GetDate()} />
-            <form action="">
-              <SpaceSearch>
-                <input type="text" placeholder="Buscar" />
-                <button type="submit">
-                  <img src="/SearchListIcon.svg" alt="" />
-                </button>
-              </SpaceSearch>
-            </form>
           </div>
         </header>
         <table>
