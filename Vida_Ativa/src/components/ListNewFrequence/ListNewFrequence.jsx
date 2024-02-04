@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { AllStudents } from "../../services/studentService";
-import { SpaceSearch } from "../Search/SearchStyled";
 import { ListNewFrequenceArea } from "./ListNewFrequenceStyled";
 import { addFrequence } from "../../services/frequenceService";
 import { ErrorText } from "../../Pages/Login/LoginStyled";
@@ -10,13 +9,19 @@ function ListNewFrequence({ ...props }) {
   const [serverError, setServerError] = useState("");
 
   async function FindAllStudents() {
-    const studentResponse = await AllStudents();
-    const students = studentResponse.data.users.map((student) => {
-      let date = new Date(student.registration);
-      student.registration = date.toLocaleDateString("pt-BR");
-      return student;
-    });
-    setInfoAllStudents(students);
+    try {
+      const studentResponse = await AllStudents();
+      const students = studentResponse.data.users.map((student) => {
+        let date = new Date(student.registration);
+        student.registration = date.toLocaleDateString("pt-BR");
+        return student;
+      });
+      students.sort((a, b) => a.name.localeCompare(b.name));
+
+      setInfoAllStudents(students);
+    } catch (error) {
+      console.error("Erro ao obter alunos:", error);
+    }
   }
 
   const closeList = () => props.onClose();
