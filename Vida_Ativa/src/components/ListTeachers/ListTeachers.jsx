@@ -8,8 +8,20 @@ function Listheader() {
   const [initialLoad, setInitialLoad] = useState(true);
 
   async function FindAllUsers() {
-    const usersReponse = await allUsers();
-    setInfoAllUsers(usersReponse.data.users[0]);
+    try {
+      const usersResponse = await allUsers();
+      if (usersResponse.data.users[0].length > 0) {
+        const users = usersResponse.data.users.map((user) => {
+          return user;
+        });
+        users[0].sort((a, b) => a.name.localeCompare(b.name));
+        setInfoAllUsers(users[0]);
+      } else {
+        console.warn("Nenhum usuário encontrado.");
+      }
+    } catch (error) {
+      console.error("Erro ao obter usuários:", error);
+    }
   }
 
   function PermissionCheck(index) {
