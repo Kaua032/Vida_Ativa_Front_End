@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://api-vidaativa.onrender.com";
 
 export function signup(data) {
   const response = axios.post(`${baseURL}/user/register`, data, {
