@@ -51,6 +51,7 @@ Apenas professores autenticados conseguem acessar e interagir com as rotas da AP
 > Pré-requisitos:
 > - Node.js instalado
 > - API do Vida Ativa rodando localmente ou em produção
+> - O endereço da API deve ser colocado na variável baseURL de cada service na pasta services
 
 ### 1. Clone o repositório
 
