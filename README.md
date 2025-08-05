@@ -56,4 +56,6 @@ Apenas professores autenticados conseguem acessar e interagir com as rotas da AP
 
 ```bash
 git clone https://github.com/Kaua032/Vida_Ativa_Frontend.git
-cd Vida_Ativa_Frontend
+cd Vida_Ativa_Frontend/Vida_Ativa/
+npm install
+npm run dev
